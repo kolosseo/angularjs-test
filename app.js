@@ -1,23 +1,26 @@
 (function () {
 'use strict'
 
-angular.module('nameCalculator', [])
+angular.module('DIApp', [])
 
-.controller('nameCalculatorController', function ($scope) {
-    $scope.name = ''
-    $scope.totalValue = 0
+.controller('DIController', DIController)
+// next line is needed to save controller parameters from minification:
+//.controller('DIController', ['$scope', '$filter', '$injector', DIController])
 
-    $scope.totalValueFun = function() {
-         return calculateNumericForString($scope.name)
+// otherwise, the nex line is a more elegant way:
+DIController.$inject = ['$scope', '$filter', '$injector']
+function DIController ($scope, $filter, $injector) {
+    $scope.name = 'Yaakov'
+
+    $scope.upper = function () {
+        var upCase = $filter('uppercase')
+        $scope.name = upCase($scope.name)
     }
 
-    function calculateNumericForString(string) {
-        var val = 0
-        for (var i = 0; i < string.length; i++)
-            val += string.charCodeAt(i)
+    console.log(DIController)
+    console.log($injector.annotate(DIController))
+}
 
-        return val
-    }
-})
+//console.log(DIController.toString())
 
 })()
