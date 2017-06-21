@@ -8,14 +8,15 @@
             LunchCheck
         </title>
     </head>
-    <body ng-app='LunchCheck'>
+    <body style="text-align:center;" ng-app='LunchCheck'>
         <h1>LunchCheck</h1>
 
         <div ng-controller='LunchCheckController'>
             <input type="tex" ng-model="string"><br>
-
+            <br>
             <button type="button" ng-click="checkIfTooMuch()">Check</button>
-
+            <br>
+            <br>
             <div>{{ res }}</div>
         </div>
     </body>
