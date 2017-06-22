@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app='MsgApp'>
+    <head>
+        <meta charset="utf-8">
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <style> body { font-size: 1.2em; }</style>
+        <title>Filters</title>
+    </head>
+    <body>
+        <h1>Filters</h1>
+        <div ng-controller='MsgController'>
+            {{name}} has a message for you:<br>
+            Message: {{sayMessage()}}<br>
+            Love filter: {{'He likes this!! ;D' | love}}<br>
+            Truth filter: {{'Replace this to that' | truth : 'this' : 'that'}}<br>
+            BIG TRUTH FILTER: {{'Replace this to that' | truth : 'this' : 'that' | uppercase}}
+            <div>
+                <button ng-click="feedPippo()">Feed Pippo</button>
+                Cost: {{ cookieCost | currency : "€" : 4 }}<br>
+                <img ng-src="images/yaakov_{{stateOfBeing}}.png">
+            </div>
+        </div>
+    </body>
+</html>
