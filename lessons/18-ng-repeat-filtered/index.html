@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+    <head>
+        <meta charset="utf-8">
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <style>
+        body { font-size: 1.2em; }
+        hr, input { border: 1px solid #eee; }
+        hr { border-bottom: 0 solid #eee; }
+        </style>
+        <title>ng-repeat</title>
+    </head>
+    <body>
+        <h1>ng-repeat</h1>
+        <div ng-controller='ShoppingListController'>
+            <!-- Searchable Shopping List: -->
+            <h3>Shopping List:</h3>
+            <hr>
+            Filter by:<br>
+            <input type="text" ng-model="search">
+            <hr>
+            <ul>
+                <li ng-repeat="item in shoppingList | filter : search">{{ item }}</li>
+            </ul>
+        </div>
+    </body>
+</html>
